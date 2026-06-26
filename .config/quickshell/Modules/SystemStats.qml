@@ -48,8 +48,8 @@ Rectangle {
       }
 
       Text {
-        property string trackTitle: mprisModule.player.trackTitle.length > 50
-          ? mprisModule.player.trackTitle.substring(0, 50) + "..."
+        property string trackTitle: mprisModule.player.trackTitle.length > 40
+          ? mprisModule.player.trackTitle.substring(0, 40) + "..."
           : mprisModule.player.trackTitle
 
         property string trackArtist: mprisModule.player.trackArtist.length > 20
