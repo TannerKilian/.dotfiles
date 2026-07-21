@@ -41,7 +41,7 @@ hl.bind(mainMod .. " + mouse:273", hl.dsp.window.resize(), { mouse = true })
 
 -- Layout specific binds
 hl.bind(mainMod .. " + I", function() layout_aware_dispatch({ master = "swapwithmaster" }) end)
-hl.bind(mainMod .. " + O", function() layout_aware_dispatch({ master = "orientationcycle left center" }) end)
+hl.bind(mainMod .. " + O", function() layout_aware_dispatch({ master = "orientationcycle left center top" }) end)
 hl.bind(mainMod .. " + G", function() layout_aware_dispatch({ master = "focusmaster" }) end)
 
 

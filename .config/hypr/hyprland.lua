@@ -16,21 +16,32 @@ local shadow_color = "rgba(16161dff)"
 --- MONITORS ---
 ----------------
 
-local monitor1 = "desc:Microstep G274QPF E2 CC2HJ65501726"
-local monitor2 = "desc:Ancor Communications Inc ASUS PB238 C7LMTF053691"
+local monitor1 = "desc:ASUSTek COMPUTER INC PG27UCDM W3LMAV007180"
+local monitor2 = "desc:Microstep G274QPF E2 CC2HJ65501726"
+local monitor3 = "desc:Ancor Communications Inc ASUS PB238 C7LMTF053691"
 
 hl.monitor({
   output = monitor1,
-  mode = "2560x1440@180",
-  position = "auto",
-  scale = "1",
+  mode = "3840x2160@240",
+  position = "0x0",
+  scale = 1.25,
+  bitdepth = 10,
+  cm = "srgb",
 })
 
 hl.monitor({
   output = monitor2,
-  mode = "1920x1080@60",
+  mode = "2560x1440@180",
   position = "auto-left",
   scale = "1",
+})
+
+hl.monitor({
+  output = monitor3,
+  mode = "1920x1080@60",
+  position = "auto-right",
+  scale = "1",
+  transform = 1,
 })
 
 
@@ -126,7 +137,7 @@ hl.config({
       size = 5,
       passes = 3,
       ignore_opacity = true,
-      noise = 0,
+      -- noise = 0,
       brightness = 0.90,
     },
 
@@ -195,14 +206,28 @@ hl.config({
     splash_font_family = "JetBrainsMono",
     force_default_wallpaper = 0,
 
-    vrr = 1,
+    vrr = 3,
 
     animate_manual_resizes = true,
     animate_mouse_windowdragging = true,
 
     middle_click_paste = false,
     focus_on_activate = true,
-  }
+  },
+
+  xwayland = {
+    force_zero_scaling = true,
+  },
+
+  -- cursor = {
+  --   no_hardware_cursors = 1,
+  --   no_break_fs_vrr = 1,
+  --   min_refresh_rate = 180,
+  -- },
+
+  -- debug = {
+  --   vfr = true,
+  -- }
 })
 
 
@@ -255,11 +280,14 @@ hl.workspace_rule({ workspace = "8", monitor = monitor2, persistent = true, layo
 hl.workspace_rule({ workspace = "9", monitor = monitor2, persistent = true, layout = "master" })
 hl.workspace_rule({ workspace = "10", monitor = monitor2, persistent = true, layout = "master" })
 hl.workspace_rule({ workspace = "31", monitor = monitor2, default_name = "discord", layout = "scrolling" })
-hl.workspace_rule({ workspace = "32", monitor = monitor2, default_name = "music", layout = "master", on_created_empty = "youtube-music" })
+
+
+hl.workspace_rule({ workspace = "11", monitor = monitor3, persistent = true, layout = "master" })
+hl.workspace_rule({ workspace = "32", monitor = monitor3, default_name = "music", layout = "master", on_created_empty = "youtube-music" })
 
 hl.layer_rule({ match = { namespace = "selection" }, no_anim = true })
 
-hl.window_rule({ match = { class = terminal }, opacity = 0.90 })
+-- hl.window_rule({ match = { class = terminal }, opacity = 0.90 })
 
 hl.window_rule({ match = { class = ".*" }, suppress_event = "maximize" })
 
@@ -294,6 +322,7 @@ hl.window_rule({
   workspace = 30,
   fullscreen_state = 2,
   idle_inhibit = "always",
+  content = "game",
 })
 
 hl.window_rule({
@@ -303,6 +332,7 @@ hl.window_rule({
   workspace = 30,
   fullscreen_state = 2,
   idle_inhibit = "always",
+  content = "game",
 })
 
 hl.window_rule({
