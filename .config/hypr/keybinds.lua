@@ -3,6 +3,7 @@
 -------------------------------
 
 local mainMod = "SUPER"
+local uwsm = "uwsm app -- "
 
 local function layout_aware_dispatch(actions)
   local active_ws = hl.get_active_workspace()
@@ -49,20 +50,21 @@ hl.bind(mainMod .. " + G", function() layout_aware_dispatch({ master = "focusmas
 --- UTILITY BINDS ---
 ---------------------
 
-hl.bind(mainMod .. " + D", hl.dsp.exec_cmd(menu))
+hl.bind(mainMod .. " + D", hl.dsp.exec_cmd(uwsm .. menu))
 
-hl.bind(mainMod .. " + RETURN", hl.dsp.exec_cmd(terminal))
-hl.bind(mainMod .. " + E", hl.dsp.exec_cmd(filemanager))
-hl.bind(mainMod .. " + W", hl.dsp.exec_cmd(browser))
-hl.bind(mainMod .. " + SHIFT + ESCAPE", hl.dsp.exec_cmd(powermenu))
-hl.bind(mainMod .. " + ALT + L", hl.dsp.exec_cmd(lockscreen))
-hl.bind(mainMod .. " + A", hl.dsp.exec_cmd(quicksettings))
-hl.bind(mainMod .. " + ALT + M", hl.dsp.exec_cmd(barreload))
-hl.bind(mainMod .. " + N", hl.dsp.exec_cmd("makoctl restore"))
-hl.bind("Print", hl.dsp.exec_cmd("grimblast edit area"))
-hl.bind("SHIFT + Print", hl.dsp.exec_cmd("grimblast edit output"))
+hl.bind(mainMod .. " + RETURN", hl.dsp.exec_cmd(uwsm .. terminal))
+hl.bind(mainMod .. " + E", hl.dsp.exec_cmd(uwsm .. filemanager))
+-- hl.bind(mainMod .. " + E", hl.dsp.exec_cmd("uwsm app -- foot yazi"))
+hl.bind(mainMod .. " + W", hl.dsp.exec_cmd(uwsm .. browser))
+hl.bind(mainMod .. " + SHIFT + ESCAPE", hl.dsp.exec_cmd(uwsm .. powermenu))
+hl.bind(mainMod .. " + ALT + L", hl.dsp.exec_cmd(uwsm .. lockscreen))
+hl.bind(mainMod .. " + A", hl.dsp.exec_cmd(uwsm .. quicksettings))
+hl.bind(mainMod .. " + ALT + M", hl.dsp.exec_cmd(uwsm .. barreload))
+hl.bind(mainMod .. " + N", hl.dsp.exec_cmd(uwsm .. "makoctl restore"))
+hl.bind("Print", hl.dsp.exec_cmd(uwsm .. "grimblast edit area"))
+hl.bind("SHIFT + Print", hl.dsp.exec_cmd(uwsm .. "grimblast edit output"))
 
-hl.bind(mainMod .. " + V", hl.dsp.exec_cmd("cliphist-fuzzel-img"))
+hl.bind(mainMod .. " + V", hl.dsp.exec_cmd(uwsm .. "cliphist-fuzzel-img"))
 
 -- Multimedia binds
 hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+ -l 1.0 && volumenotification"), { locked = true, repeating = true })
