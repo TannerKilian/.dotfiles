@@ -24,7 +24,7 @@ hl.monitor({
   output = monitor1,
   mode = "3840x2160@240",
   position = "0x0",
-  scale = 1.25,
+  scale = 1.5,
   bitdepth = 10,
   cm = "srgb",
 })
@@ -290,6 +290,17 @@ hl.layer_rule({ match = { namespace = "selection" }, no_anim = true })
 -- hl.window_rule({ match = { class = terminal }, opacity = 0.90 })
 
 hl.window_rule({ match = { class = ".*" }, suppress_event = "maximize" })
+
+hl.window_rule({
+  name = "popup",
+  match = { class = "xdg-desktop-portal-gtk" },
+
+  float = true,
+  center = true,
+  -- stay_focused = true,
+  -- size = { "(monitor_w*0.35)", "(monitor_h*0.45)" },
+  size = { "(monitor_w*0.55)", "(monitor_h*0.65)" },
+})
 
 hl.window_rule({
   name = "tui_popup",
